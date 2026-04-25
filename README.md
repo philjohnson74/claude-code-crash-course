@@ -4,6 +4,20 @@ A collection of projects built during the Claude Code crash course.
 
 ---
 
+## Memory
+
+The [memory/](memory/) folder holds reusable instructions that Claude Code can pick up as scoped guidance.
+
+### [memory/frontend/CLAUDE.md](memory/frontend/CLAUDE.md)
+
+A set of frontend coding rules (React, Next.js, TypeScript, Tailwind, Node.js) copied from [cursor.directory](https://cursor.directory). It defines how Claude should approach code review, planning, security, and tradeoff discussions when working on frontend code — the same rules many developers use with Cursor, repurposed as Claude Code instructions.
+
+### [memory/specs/CLAUDE.md](memory/specs/CLAUDE.md)
+
+The hookhub MVP spec (see below).
+
+---
+
 ## Projects
 
 ### [hookhub/](hookhub/)
