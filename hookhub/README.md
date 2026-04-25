@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## About HookHub
+
+HookHub is a directory site for discovering open-source **Claude Code hooks** — community-built scripts that intercept Claude Code lifecycle events for safety, formatting, testing, notifications, and more.
+
+The MVP spec lives at [../memory/specs/CLAUDE.md](../memory/specs/CLAUDE.md).
+
 ## Getting Started
 
 First, run the development server:
