@@ -1,42 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## About HookHub
 
 HookHub is a directory site for discovering open-source **Claude Code hooks** — community-built scripts that intercept Claude Code lifecycle events for safety, formatting, testing, notifications, and more.
 
 The MVP spec lives at [../memory/specs/CLAUDE.md](../memory/specs/CLAUDE.md).
 
-## Getting Started
+---
 
-First, run the development server:
+## Running the project
+
+**Install dependencies** (first time only):
+
+```bash
+npm install
+```
+
+**Start the dev server:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The page auto-reloads as you edit files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Other commands:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run lint    # run ESLint
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+hookhub/
+  app/
+    layout.tsx              # root layout, fonts, metadata
+    page.tsx                # home page — header, hook grid, footer
+    globals.css             # Tailwind v4 base styles
+    data/
+      hooks.ts              # static hook seed data (add new hooks here)
+    components/
+      HookCard.tsx          # card component linking to a hook's GitHub repo
+      CategoryBadge.tsx     # coloured pill badge per category
+  public/                   # static assets
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add a new hook, append an entry to `app/data/hooks.ts` — no other changes needed.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 16** (App Router, fully static output)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**

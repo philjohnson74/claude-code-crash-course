@@ -49,3 +49,19 @@ The spec covers:
 - **UI** — single home page with a responsive card grid (1/2/3 columns), category badges, and outbound GitHub links
 - **File structure** — new `app/data/hooks.ts`, `app/components/HookCard.tsx`, `app/components/CategoryBadge.tsx`
 - **Acceptance criteria** for the MVP
+
+#### Implementation
+
+The MVP was implemented in response to this prompt:
+
+> Can you please help me implement the main page as in @memory/specs/CLAUDE.md file. Can you create the implementation in the hookhub directory.
+
+Files created:
+
+| File | Purpose |
+|------|---------|
+| `app/data/hooks.ts` | Static seed data — 12 hooks with type definitions |
+| `app/components/CategoryBadge.tsx` | Coloured pill badge per category |
+| `app/components/HookCard.tsx` | Card component linking out to each hook's GitHub repo |
+| `app/page.tsx` | Home page — header, responsive 1/2/3-column grid, footer |
+| `app/layout.tsx` | Updated title and description metadata |
