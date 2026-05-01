@@ -18,6 +18,57 @@ The hookhub MVP spec (see below).
 
 ---
 
+## Finished Processing Hook
+
+This repo includes a project-scoped Claude Code hook that plays an audio chime whenever Claude finishes processing a request.
+
+### Files
+
+| File | Purpose |
+|------|---------|
+| `FinishedProcessing.wav` | Audio chime played at the end of each Claude response |
+| `play_sound.py` | Python script that plays `FinishedProcessing.wav` using macOS's built-in `afplay` command |
+| `pyproject.toml` | `uv` project config (Python package manager) |
+| `.claude/settings.json` | Project-scoped Claude Code hook config |
+
+### How it works
+
+`.claude/settings.json` registers a `Stop` hook — a command Claude Code runs automatically each time it finishes a response:
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run /Users/phillipjohnson/Code/claude-code-crash-course/play_sound.py"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Because the settings file lives in `.claude/settings.json` (project-level), the hook only fires when Claude Code is working inside this directory — not in other projects.
+
+`play_sound.py` uses macOS's built-in `afplay` binary, so no audio libraries are required:
+
+```python
+import subprocess
+from pathlib import Path
+
+SOUND = Path(__file__).parent / "FinishedProcessing.wav"
+
+def main():
+    subprocess.run(["afplay", str(SOUND)], check=True)
+```
+
+---
+
 ## Projects
 
 ### [hookhub/](hookhub/)
